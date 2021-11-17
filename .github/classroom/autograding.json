@@ -1,0 +1,124 @@
+{
+  "tests": [
+    {
+      "name": "Run hashtable cosntructor, etc. tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Constructor resize get capacity and get size ops\" && timeout 60 make clean test-1-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 9
+    },
+    {
+      "name": "Run hashtable insert tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Insert ops\" && timeout 5 make test-1-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 7
+    },
+    {
+      "name": "Run hashtable remove tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Remove ops\" && timeout 5 make test-1-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 7
+    },
+    {
+      "name": "Run hashtable resize tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Resize\" && timeout 5 make test-1-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 7
+    },
+    {
+      "name": "Run hashtable haskey/exists tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"HasKey and exist ops\" && timeout 5 make test-2-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 8
+    },
+    {
+      "name": "Run hashtable clear tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Get size ops\" && timeout 5 make test-2-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 6
+    },
+    {
+      "name": "Run hashtable resize tests",
+      "setup": "",
+      "run": "export SUB_TEST=\"Clear ops\" && timeout 5 make test-2-hashtable",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 6
+    },
+    {
+      "name": "Run Add users",
+      "setup": "",
+      "run": "export SUB_TEST=\"Add users\" && timeout 5 make test-3-passserver",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "Run Remove users",
+      "setup": "",
+      "run": "export SUB_TEST=\"Remove users\" && timeout 5 make test-3-passserver",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "Run Validate users",
+      "setup": "",
+      "run": "export SUB_TEST=\"Validate users\" && timeout 5 make test-3-passserver",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "Run Check existence of users",
+      "setup": "",
+      "run": "export SUB_TEST=\"Check existence of users\" && timeout 5 make test-3-passserver",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    },
+    {
+      "name": "Run Update passwords for users",
+      "setup": "",
+      "run": "export SUB_TEST=\"Update passwords for users\" && timeout 5 make test-3-passserver",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 4
+    }
+  ]
+}
