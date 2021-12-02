@@ -88,7 +88,8 @@ bool HashTable<K, V>::Remove(K key)
         {
             for (int j = 0; j < size; j++)
             {
-                if(key == buckets[i][j].first){
+                if (key == buckets[i][j].first)
+                {
                     buckets.erase(buckets.begin() + i);
                     size--;
                 }
@@ -99,7 +100,33 @@ bool HashTable<K, V>::Remove(K key)
 }
 
 template <typename K, typename V>
-void HashTable<K, V>::Clear() {}
+bool HashTable<K, V>::Exist(K key, V value)
+{
+    for (int i = 0; i < buckets.size(); i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (key == buckets[i][j].first && value == buckets[i][j].second)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+template <typename K, typename V>
+void HashTable<K, V>::Clear()
+{
+    for (int i = 0; i < buckets.size(); i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+                buckets.erase(buckets.begin() + i);
+        }
+    }
+    size = 0; 
+}
 
 template <typename K, typename V>
 void HashTable<K, V>::Resize(int capacity)
