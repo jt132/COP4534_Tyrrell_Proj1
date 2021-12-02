@@ -21,6 +21,7 @@ $(TESTS): $(CATCH)
 	$(CXX) $(CXXFLAGS) -o test/$@ $^
 	test/$@ --success "$(SUB_TEST)"
 
+
 test-all: $(TESTS)
 test-1-hashtable: test/test-1-hashtable.cpp hashtable.o
 test-2-hashtable: test/test-2-hashtable.cpp hashtable.o

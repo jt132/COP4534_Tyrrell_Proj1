@@ -9,10 +9,12 @@ class HashTable{
     private:
         int capacity;
         int size;
-        std::vector<std::vector<std::pair<K, V> > > data;
-        int Hash(K key);
+        std::vector<std::vector<std::pair<K, V> > > buckets;
     public: 
         HashTable();
+        HashTable(int _capacity);
+        void fillVector();
+        int Hash(K key);
         bool HasUser(K key, V value);
         bool HasKey (K key);
         bool Insert(K key, V value);
