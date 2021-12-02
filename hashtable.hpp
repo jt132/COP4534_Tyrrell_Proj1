@@ -15,7 +15,7 @@ class HashTable{
         HashTable(int _capacity);
         void fillVector();
         int Hash(K key);
-        bool HasUser(K key, V value);
+        //bool HasUser(K key, V value);
         bool HasKey (K key);
         bool Insert(K key, V value);
         bool Exist(K key, V value);
