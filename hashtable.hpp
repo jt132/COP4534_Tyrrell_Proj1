@@ -18,6 +18,7 @@ class HashTable{
         bool HasUser(K key, V value);
         bool HasKey (K key);
         bool Insert(K key, V value);
+        bool Exist(K key, V value);
         bool Remove (K key);
         void Clear();
         void Resize (int capacity);
