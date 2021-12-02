@@ -21,6 +21,7 @@ class HashTable{
         bool Exist(K key, V value);
         bool Remove (K key);
         void Clear();
+        void PrintTable();
         void Resize (int capacity);
         int GetCapacity();
         int GetSize();
