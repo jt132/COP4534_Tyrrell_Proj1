@@ -45,12 +45,13 @@ int main()
             cin >> username;
             if (passServer.RemoveUser(username))
             {
-                cout << "Successfully removed " << username;
+                cout << "Successfully removed " << username << endl;
             }
             else 
             {
-                cout << "Failed to remove " << username;
+                cout << "Failed to remove " << username << endl;
             }
+            break;
         case 'c':
             cout << "Please enter a username: " << endl;
             cin >> username;
@@ -65,6 +66,7 @@ int main()
             {
                 cout << "Failed to update the user password for " << username << endl;
             }
+            break;
         case 'e':
             cout << "Please enter a username: " << endl;
             cin >> username;
