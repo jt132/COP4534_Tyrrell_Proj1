@@ -59,6 +59,6 @@ TEST_CASE("Update passwords for users")
   // fail with wrong username
   REQUIRE(!passServer.UpdatePassword("ajohn", "123", "111"));
   REQUIRE(passServer.UpdatePassword("bjohn", "123", "111"));
-  // password changed
+//   // password changed
   REQUIRE(passServer.Validate("bjohn", "111"));
 }

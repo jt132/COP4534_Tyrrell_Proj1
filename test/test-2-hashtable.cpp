@@ -24,11 +24,11 @@ TEST_CASE("Get size ops")
 	REQUIRE(hashTable.Insert("abc", "pass"));
 	REQUIRE(1 == hashTable.GetSize());
 	REQUIRE(hashTable.Insert("bbc", "pass"));
-	REQUIRE(2 == hashTable.GetSize());
-	REQUIRE(hashTable.Remove("abc"));
-	REQUIRE(1 == hashTable.GetSize());
-	REQUIRE(hashTable.Remove("bbc"));
-	REQUIRE(0 == hashTable.GetSize());
+ 	REQUIRE(2 == hashTable.GetSize());
+ 	REQUIRE(hashTable.Remove("abc"));
+ 	REQUIRE(1 == hashTable.GetSize());
+ 	REQUIRE(hashTable.Remove("bbc"));
+ 	REQUIRE(0 == hashTable.GetSize());
 }
 
 TEST_CASE("Clear ops")
@@ -37,10 +37,11 @@ TEST_CASE("Clear ops")
 	REQUIRE(hashTable.Insert("abc", "pass"));
 	REQUIRE(hashTable.HasKey("abc"));
 	REQUIRE(hashTable.Insert("bbc", "pass"));
+	hashTable.PrintTable();
 	REQUIRE(hashTable.HasKey("bbc"));
 	REQUIRE(2 == hashTable.GetSize());
 	hashTable.Clear();
-	REQUIRE(0 == hashTable.GetSize());
+ 	REQUIRE(0 == hashTable.GetSize());
 	REQUIRE(!hashTable.HasKey("abc"));
-	REQUIRE(!hashTable.HasKey("bbc"));
+ 	REQUIRE(!hashTable.HasKey("bbc"));
 }
