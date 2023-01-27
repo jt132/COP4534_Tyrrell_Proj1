@@ -66,9 +66,9 @@ void User::readRawFile()
     while (getline(readFile, myText))
     {
         passwordToEncrypt = myText.substr((myText.length()-9), myText.length());
-         myText = myText.substr(0, myText.find(" "));
-        encryptPassword(passwordToEncrypt, "vignere");
-        myText = myText + "    " +  passwordToEncrypt;
+        myText = myText.substr(0, myText.find(" "));
+        std::string encryptedPassword = encryptPassword(passwordToEncrypt, "vignere");
+        myText = myText + "    " +  encryptedPassword;
         writeData(myText, "encrypted.txt");
     }
 }
@@ -76,17 +76,15 @@ void User::readRawFile()
 std::string User::encryptPassword(std::string passwordToEncrypt, std::string keyword)
 {
     std::string encryptedPassword = "";
+    char c = ' ';
 
     for (int i = 0, j = 0; i < passwordToEncrypt.size(); i++, j++){
-        char c = (passwordToEncrypt[i] + keyword[j] % 26);
+        c = (((passwordToEncrypt[i] + keyword[j]) % 26) + 97);
         if (j == (keyword.length()-1))
         {
             j = 0;
         }
-
-        c += 'a';
-
-        encryptedPassword.push_back(c);
+        encryptedPassword = encryptedPassword + c;
     }
     return encryptedPassword;
 }
