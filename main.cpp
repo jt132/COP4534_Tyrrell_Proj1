@@ -2,11 +2,9 @@
 #include "user.hpp"
 
 int main() {
-    std::cout << "are we even running this program" << std::endl;
+    std::cout << "Welcome to the most elite hashing program you've ever seen" << std::endl;
+    std::cout << "And also quite possibly the slowest" << std::endl;
     User user1;
-    //user1.readData("lastNames.txt", "raw.txt");
-    //user1.readRawFile();
-    std::ofstream test("test.txt", std::ios::app);
-    test << user1.encryptPassword("test", "vignere");
-
+    user1.createRaw();
+    user1.createEncrypted();
 }

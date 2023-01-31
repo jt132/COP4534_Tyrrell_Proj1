@@ -13,12 +13,11 @@ private:
 public:
     User();
     std::string getUserID();
-    //void createFile(std::string filename);
+    void createRaw();
+    void createEncrypted();
     std::string generatePasswords();
-    void readRawFile();
-    void readData(std::string readFilename, std::string writeFilename);
-    void writeData(std::string dataToWrite, std::string filename);
     std::string encryptPassword(std::string passwordToEncrypt, std::string keyword);
+    void writeData(std::string dataToWrite, std::string filename);
 };
 
 #endif
