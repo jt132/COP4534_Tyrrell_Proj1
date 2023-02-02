@@ -1,24 +1,19 @@
 #ifndef HASHTABLE
 #define HASHTABLE
-#include <vector>
 #include <functional>
+#include <iostream>
+#include <fstream>
+#include "list.hpp"
 
-template <typename K, typename V>
 class HashTable{
     private: 
-        int capacity;
         int size;
-        std::vector<std::vector<std::pair<K, V>>> buckets;
+        List* buckets;
     public:
-        HashTable();
-        HashTable (int capacity);
-        void fillVector();
-        int hash(K key);
-        bool hasKey( K key):
-        bool insert(K key, V value);
-        bool doesExist(K key, V value);
-        bool remove (K key);
-        void clear();
+        HashTable (int size);
+        void createTable();
+        std::string findHash(std::string userID);
+        std::string isMatch(std::string, std::string, std::string);
         void printTable();
 };
 

@@ -2,38 +2,36 @@
 #include <iostream>
 #include <string>
 
-//default constructor
-template <typename K, typename V>
-HashTable<K, V>::HashTable();
+HashTable::HashTable(int size){
+    this->size = size;
+    buckets = new List[size];
+}
 
-//paramaterized constructor
-template <typename K, typename V>
-HashTable<K, V>::HashTable (int capacity);
+void HashTable::createTable(){
+    std::ifstream readFile;
+    std::ofstream writeFile;
+    readFile.open("encrypted_test.txt");
+    writeFile.open("hash_test.txt");
 
+    std::string userID = "";
+    std::string password = "";
+    Node* temp;
+    int hashNumber = 0;
+    std::hash<std::string> myHashingObject;
 
-template <typename K, typename V>
-void HashTable<K, V>::fillVector();
+    while(true){
+        readFile >> userID >> password;
+        temp = new Node(userID);
+        temp->setPassword(password);
 
-template <typename K, typename V>
-int HashTable<K, V>::hash(K key);
+        hashNumber = myHashingObject(userID) % size;
 
-template <typename K, typename V>
-bool HashTable<K, V>::hasKey( K key);
+        if(readFile.eof()){
+            break;
+        }
 
-template <typename K, typename V>
-bool insert(K key, V value);
+        writeFile << hashNumber << std::endl;  
 
-template <typename K, typename V>
-bool HashTable<K, V>::doesExist(K key, V value);
-
-template <typename K, typename V>
-bool HashTable<K, V>::remove (K key);
-
-template <typename K, typename V>
-void HashTable<K, V>::clear();
-
-template <typename K, typename V>
-void HashTable<K, V>::printTable();
-
-template class HashTable<std::string, std::string>;
-
+        buckets[hashNumber].add(temp);
+   }
+}
