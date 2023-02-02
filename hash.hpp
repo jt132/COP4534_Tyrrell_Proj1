@@ -3,6 +3,7 @@
 #include <functional>
 #include <iostream>
 #include <fstream>
+#include "vignere.hpp"
 #include "list.hpp"
 
 class HashTable{
@@ -14,7 +15,6 @@ class HashTable{
         void createTable();
         std::string findHash(std::string userID);
         std::string isMatch(std::string, std::string, std::string);
-        void printTable();
 };
 
 

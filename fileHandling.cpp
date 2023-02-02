@@ -23,6 +23,7 @@ void FileHandling::createRaw()
 
 void FileHandling::createEncrypted()
 {
+    Vignere V;
     std::string passwordToEncrypt = "";
     std::string encryptedPassword = "";
     std::string myText = "";
@@ -33,7 +34,7 @@ void FileHandling::createEncrypted()
     {
         passwordToEncrypt = myText.substr((myText.length()-9), myText.length());
         myText = myText.substr(0, myText.find(" "));
-        encryptedPassword = encryptPassword(passwordToEncrypt, "vignere");
+        encryptedPassword = V.encryptPassword(passwordToEncrypt, "vignere");
         myText = myText + "    " + encryptedPassword; 
         writeData(myText, "encrypted.txt");
     }
@@ -56,24 +57,6 @@ std::string FileHandling::generatePasswords(std::string userID)
         clearPassword = clearPassword + letters[(std::rand() + userID[j]) % 26];
     }
     return clearPassword;
-}
-
-std::string FileHandling::encryptPassword(std::string passwordToEncrypt, std::string keyword)
-{
-    std::string encryptedPassword = "";
-
-    for (int i = 0, j = 0; i < passwordToEncrypt.size(); i++, j++){
-        char c = ((passwordToEncrypt[i] + keyword[j]) % 26);
-        if (j == (keyword.length()-1))
-        {
-            j = 0;
-        }
-
-        c += 'a';
-
-        encryptedPassword.push_back(c);
-    }
-    return encryptedPassword;
 }
 
 void FileHandling::writeData(std::string dataToWrite, std::string filename)

@@ -10,4 +10,6 @@ int main() {
     //fh1.createEncrypted();
     HashTable ht1(200);
     ht1.createTable();
+    ht1.findHash("Smith");
+    ht1.isMatch("Smith", "veorhdyai", "vignere");
 }
