@@ -34,10 +34,10 @@ void HashTable::createTable()
             break;
         }
 
-        writeFile << hashNumber << std::endl;
+        writeFile << hashNumber << std::endl;  
 
         buckets[hashNumber].add(temp);
-    }
+   }
 }
 // this function will find the hash based off of the userID
 std::string HashTable::findHash(std::string userID)
@@ -49,10 +49,11 @@ std::string HashTable::findHash(std::string userID)
     return buckets[hashNumber].findEntry(userID, nullptr);
 }
 
-std::string isMatch(std::string userID, std::string password, std::string keyword)
+std::string HashTable::isMatch(std::string userID, std::string password, std::string keyword)
 {
     Vignere V;
     std::string encryptedPassword = V.encryptPassword(password, keyword);
+    
     if (encryptedPassword == findHash(userID)){
             return "this is a match";
     }

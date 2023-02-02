@@ -1,5 +1,9 @@
 #include "vignere.hpp"
 
+Vignere::Vignere(){
+    
+}
+
 std::string Vignere::encryptPassword(std::string passwordToEncrypt, std::string keyword)
 {
     std::string encryptedPassword = "";
