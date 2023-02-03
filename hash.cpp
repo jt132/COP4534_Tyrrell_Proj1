@@ -2,25 +2,24 @@
 #include <iostream>
 #include <string>
 
-//creates hash table object that accepts whatever size is desired from main
+// creates hash table object that accepts whatever size is desired from main
 HashTable::HashTable(int size)
 {
     this->size = size;
     buckets = new List[size];
 }
 
-//This function loads data into the hashtable from the encrypted text
+// This function loads data into the hashtable from the encrypted text
 void HashTable::createTable()
 {
     std::ifstream readFile;
     readFile.open("encrypted.txt");
-    
+
     std::string userID = "";
     std::string password = "";
     Node *temp;
     int hashNumber = 0;
     std::hash<std::string> myHashingObject;
-    
 
     while (true)
     {
@@ -35,7 +34,7 @@ void HashTable::createTable()
             break;
         }
         buckets[hashNumber].add(temp);
-   }
+    }
 }
 // this function seeks to find the hash based off of the userID
 std::string HashTable::findHash(std::string userID)
@@ -47,17 +46,19 @@ std::string HashTable::findHash(std::string userID)
     return buckets[hashNumber].findEntry(userID);
 }
 
-//this function checks if the given userID and password match, based off of the hashtable
-//and the encrypted password created in the vignere class
+// this function checks if the given userID and password match, based off of the hashtable
+// and the encrypted password created in the vignere class
 std::string HashTable::isMatch(std::string userID, std::string password, std::string keyword)
 {
     Vignere V;
     std::string encryptedPassword = V.encryptPassword(password, keyword);
-    
-    if (encryptedPassword == findHash(userID)){
-            return "this is a match";
+
+    if (encryptedPassword == findHash(userID))
+    {
+        return "this is a match";
     }
-    else{
+    else
+    {
         return "not a match";
     }
 }

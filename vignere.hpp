@@ -2,7 +2,8 @@
 #define VIGNERE
 #include <string>
 
-class Vignere{
+class Vignere
+{
 public:
     Vignere();
     std::string encryptPassword(std::string passwordToEncrypt, std::string keyword);

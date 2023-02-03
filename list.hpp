@@ -11,7 +11,7 @@ public:
     List();
     void add(Node *user);
     std::string findEntry(std::string userID);
-    std::string findEntry(std::string userID, Node* node);
+    std::string findEntry(std::string userID, Node *node);
 };
 
 #endif

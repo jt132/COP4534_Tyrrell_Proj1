@@ -1,14 +1,19 @@
 #include "fileHandling.hpp"
 
-//this function creates raw.txt based off of lastnames.txt
+FileHandling::FileHandling()
+{
+    PASS_SIZE = 9;
+}
+
+// this function creates raw.txt based off of lastnames.txt
 void FileHandling::createRaw()
 {
     std::string myText = "";
     std::ifstream readFile;
-    
+
     remove("raw.txt");
     readFile.open("lastNames.txt");
-    
+
     while (getline(readFile, myText))
     {
         myText = myText.substr(0, myText.find(" "));
@@ -18,7 +23,7 @@ void FileHandling::createRaw()
     readFile.close();
 }
 
-//this function creates the encrypted file based off of raw.txt
+// this function creates the encrypted file based off of raw.txt
 void FileHandling::createEncrypted()
 {
     Vignere V;
@@ -29,16 +34,16 @@ void FileHandling::createEncrypted()
     readFile.open("raw.txt");
     while (getline(readFile, myText))
     {
-        passwordToEncrypt = myText.substr((myText.length()-9), myText.length());
+        passwordToEncrypt = myText.substr((myText.length() - PASS_SIZE), myText.length());
         myText = myText.substr(0, myText.find(" "));
         encryptedPassword = V.encryptPassword(passwordToEncrypt, "vignere");
-        myText = myText + "    " + encryptedPassword; 
+        myText = myText + "    " + encryptedPassword;
         writeData(myText, "encrypted.txt");
     }
     readFile.close();
 }
 
-//this function generates passwords that are used to create the raw.txt file
+// this function generates passwords that are used to create the raw.txt file
 std::string FileHandling::generatePasswords(std::string userID)
 {
     srand(time(0));
@@ -47,10 +52,11 @@ std::string FileHandling::generatePasswords(std::string userID)
                         'o', 'p', 'q', 'r', 's', 't', 'u',
                         'v', 'w', 'x', 'y', 'z'};
     std::string clearPassword = "";
-  
-    for (int i = 0, j = 0; i < 9; i++, j++)
+
+    for (int i = 0, j = 0; i < PASS_SIZE; i++, j++)
     {
-        if (j == (userID.length()-1)){
+        if (j == (userID.length() - 1))
+        {
             j = 0;
         }
         clearPassword = clearPassword + letters[(std::rand() + userID[j]) % 26];
@@ -58,10 +64,9 @@ std::string FileHandling::generatePasswords(std::string userID)
     return clearPassword;
 }
 
-//this function writes data to filenames for both the raw.txt file as well as the encrypted.txt file
+// this function writes data to filenames for both the raw.txt file as well as the encrypted.txt file
 void FileHandling::writeData(std::string dataToWrite, std::string filename)
 {
     std::ofstream MyFile(filename, std::ios::app);
     MyFile << dataToWrite << std::endl;
 }
-
