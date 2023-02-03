@@ -46,7 +46,7 @@ std::string HashTable::findHash(std::string userID)
     std::hash<std::string> myHashingObject;
     hashNumber = myHashingObject(userID) % size;
 
-    return buckets[hashNumber].findEntry(userID, nullptr);
+    return buckets[hashNumber].findEntry(userID);
 }
 
 std::string HashTable::isMatch(std::string userID, std::string password, std::string keyword)

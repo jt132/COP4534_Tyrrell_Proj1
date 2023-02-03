@@ -38,6 +38,7 @@ void FileHandling::createEncrypted()
         myText = myText + "    " + encryptedPassword; 
         writeData(myText, "encrypted.txt");
     }
+    readFile.close();
 }
 
 std::string FileHandling::generatePasswords(std::string userID)

@@ -15,7 +15,23 @@ void List::add(Node* userToPush){
 }
 
 std::string List::findEntry(std::string userID, Node* node){
-    if (head = nullptr){
+    if (head == nullptr){
+        return "This is an empty hash table";
+    }
+
+    if (userID == head->getUserID()){
+        return head->getPassword();
+    }
+
+    if(head->getNext() == nullptr){
+        return "No more items in the hash table";
+    }
+
+    return findEntry(userID, head->getNext());
+}
+
+std::string List::findEntry(std::string userID){
+     if (head == nullptr){
         return "This is an empty hash table";
     }
 
