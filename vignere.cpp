@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name: Joshua Tyrrell
+  File Name: vignere.cpp
+  Assignment number: Project01
+
+This file exists to create encryption that the passwords require
+***************************************************************/
+
 #include "vignere.hpp"
 
 // This class is responsible for encrypting the password and only has the constructor

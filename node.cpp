@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name: Joshua Tyrrell
+  File Name: node.cpp
+  Assignment number: Project01
+
+This file exists to create the nodes that the lists will utilize
+***************************************************************/
+
 #include "node.hpp"
 
 // This constructor creates nodes. These nodes are the users

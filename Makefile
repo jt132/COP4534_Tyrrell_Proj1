@@ -3,7 +3,7 @@ CXXFLAGS = -g -std=c++11 -Wall -Werror=return-type -Werror=uninitialized # --cov
 # Do not allow compiling if a non-void function is missing a return statement
 # Do not allow compiling if a variable is used without being initialized
 
-OBJECTS = main.o fileHandling.o hash.o list.o node.o vignere.o 
+OBJECTS = main.o fileHandling.o hashtable.o list.o node.o vignere.o 
 # TESTS = test-1-hashtable test-2-hashtable test-3-passserver
 # CATCH = test/catch/catch.o
 

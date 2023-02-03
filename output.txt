@@ -1,5 +1,0 @@
-Legal:
-UserID      Password   Attempted  Result
-SMITH       adithgpiu  adithgpiu  not a match
-JOHNSON     rfhnhiqdj  rfhnhiqdj  not a match
-WILLIAMS    ezllxutlk  ezllxutlk  not a match

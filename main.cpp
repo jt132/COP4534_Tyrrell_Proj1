@@ -1,7 +1,15 @@
+/***************************************************************
+  Student Name: Joshua Tyrrell
+  File Name: main.cpp
+  Assignment number: Project01
+
+This file exists to be run as an executable and drive the program along
+***************************************************************/
+
 #include <iostream>
 #include <iomanip>
 #include "fileHandling.hpp"
-#include "hash.hpp"
+#include "hashtable.hpp"
 
 // This project seeks to create a simple hash table for password management
 int main()

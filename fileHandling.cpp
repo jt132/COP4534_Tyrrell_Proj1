@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name: Joshua Tyrrell
+  File Name: fileHandling.cpp
+  Assignment number: Project01
+
+This file exists to handle the creation of raw.txt, encrypted.txt, and password generation
+***************************************************************/
+
 #include "fileHandling.hpp"
 
 FileHandling::FileHandling()
