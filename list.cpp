@@ -1,3 +1,11 @@
+/***************************************************************
+  Student Name: Joshua Tyrrell
+  File Name: list.cpp
+  Assignment number: Project01
+
+This file exists to create the list that the hashtable will utilize
+***************************************************************/
+
 #include "list.hpp"
 
 // This creates the List object, which will hold a list of nodes
