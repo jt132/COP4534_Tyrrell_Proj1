@@ -1,5 +1,6 @@
 #include "fileHandling.hpp"
 
+//this function creates raw.txt based off of lastnames.txt
 void FileHandling::createRaw()
 {
     std::string myText = "";
@@ -11,16 +12,13 @@ void FileHandling::createRaw()
     while (getline(readFile, myText))
     {
         myText = myText.substr(0, myText.find(" "));
-        //maybe add a param to generatePassword function
-        //the param would take the userID and multiply
-        //the password char by the userID char
-        //it would be way more random that way
         myText = myText + "     " + generatePasswords(myText);
         writeData(myText, "raw.txt");
     }
     readFile.close();
 }
 
+//this function creates the encrypted file based off of raw.txt
 void FileHandling::createEncrypted()
 {
     Vignere V;
@@ -28,7 +26,6 @@ void FileHandling::createEncrypted()
     std::string encryptedPassword = "";
     std::string myText = "";
     std::ifstream readFile;
-    //remove("encrypted.txt");
     readFile.open("raw.txt");
     while (getline(readFile, myText))
     {
@@ -41,6 +38,7 @@ void FileHandling::createEncrypted()
     readFile.close();
 }
 
+//this function generates passwords that are used to create the raw.txt file
 std::string FileHandling::generatePasswords(std::string userID)
 {
     srand(time(0));
@@ -60,6 +58,7 @@ std::string FileHandling::generatePasswords(std::string userID)
     return clearPassword;
 }
 
+//this function writes data to filenames for both the raw.txt file as well as the encrypted.txt file
 void FileHandling::writeData(std::string dataToWrite, std::string filename)
 {
     std::ofstream MyFile(filename, std::ios::app);

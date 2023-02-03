@@ -1,8 +1,8 @@
 #include "vignere.hpp"
 
-Vignere::Vignere(){
-    
-}
+//This class is responsible for encrypting the password and only has the constructor
+//and an encrypt password function, which does exactly what it sounds like
+Vignere::Vignere(){}
 
 std::string Vignere::encryptPassword(std::string passwordToEncrypt, std::string keyword)
 {
