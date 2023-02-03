@@ -7,19 +7,27 @@ int main() {
     std::cout << "Welcome to the most elite hashing program you've ever seen" << std::endl;
     std::cout << "And also quite possibly the slowest" << std::endl;
     FileHandling fh1;
-    fh1.createRaw();
-    fh1.createEncrypted();
-    HashTable ht1(100000);
+    //fh1.createRaw();
+    std::cout << "Created raw" << std::endl;
+    //fh1.createEncrypted();
+    std::cout << "Craeted encrypted" << std::endl;
+    HashTable ht1(1000);
     ht1.createTable();
-    ht1.findHash("Smith");
+    std::cout << "created hash table" << std::endl;
+    std::cout << "the desired hash is " << ht1.findHash("Smith");
     ht1.isMatch("Smith", "veorhdyai", "vignere");
 
     // Tries to open raw.txt
     std::ifstream inputFile("raw.txt");
+    if(!inputFile.is_open()) {
+        std::cout << "Could not open raw.txt" << std::endl;
+        return 0;
+    }
 
-    std::ofstream outputFile("output.txt");
+    std::ofstream outputFile;
+    outputFile.open("output.txt");
     outputFile << "Legal:\n" << "UserID      " << "Password   " <<"Attempted" << "  Result" << std::endl;
-
+/*
     // Loops 5 times and checks if password from raw.txt matches the password in the table
     std::string name, pass;
     for(int i = 0; i < 5; i++) {
@@ -44,4 +52,5 @@ int main() {
 
         outputFile << "  " << pass << "  " << ht1.isMatch(name, pass, "jones") << std::endl;
     }
+    */
 }
